@@ -8,9 +8,10 @@ def adjust_scale(device, requested_V_per_div):
     print(f"Requested_V_per_div: {requested_V_per_div}")
     new_scale = device.query(":CHANnel1:SCALe?").strip()
     print(f"Actual_V_per_div: {new_scale}")
-    if (float(new_scale) != float(og_scale)):
+    if (float(new_scale) != float(requested_V_per_div)):
         print("Match: NO")
-        device.write(f":CHANnel1:SCALe {og_scale}")
-        print(f"Restored CH1 scale to {og_scale} V/div. DONE")
+        
     else:
         print(f"Match: YES")
+    device.write(f":CHANnel1:SCALe {og_scale}")
+    print(f"Restored CH1 scale to {og_scale} V/div. DONE")

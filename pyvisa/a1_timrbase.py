@@ -1,5 +1,5 @@
 def timebase_for(freq_hz, cycles):
-    if freq_hz == 0:
+    if freq_hz <= 0:
         raise ValueError("freq_hz must be greater than 0")
     total_time = cycles/freq_hz
     return total_time/10
